@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(48, 33%, 97%);
+  --foreground: hsl(0, 0%, 29%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 45%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 29%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 29%);
+  --border: hsl(0, 0%, 89%);
+  --input: hsl(0, 0%, 89%);
+  --primary: hsl(143, 28%, 56%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(215, 28%, 82%);
+  --secondary-foreground: hsl(0, 0%, 29%);
+  --accent: hsl(28, 67%, 86%);
+  --accent-foreground: hsl(0, 0%, 29%);
+  --destructive: hsl(349, 89%, 74%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(143, 28%, 56%);
+  --radius: 1rem;
+  
+  /* Custom colors for mental health theme */
+  --sage: hsl(143, 28%, 56%);
+  --skyblue: hsl(215, 28%, 82%);
+  --peach: hsl(28, 67%, 86%);
+  --cream: hsl(48, 33%, 97%);
+  --soft-gray: hsl(0, 0%, 96%);
+  --charcoal: hsl(0, 0%, 29%);
+  --soft-red: hsl(349, 89%, 74%);
+}
+
+.dark {
+  --background: hsl(224, 71%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(215, 28%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(224, 71%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(224, 71%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(215, 28%, 17%);
+  --input: hsl(215, 28%, 17%);
+  --primary: hsl(143, 28%, 56%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(215, 28%, 17%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(215, 28%, 17%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(216, 34%, 17%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased min-h-screen text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #adb5bd 75%, #6c757d 100%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .sage {
+    color: var(--sage);
+  }
+  
+  .bg-sage {
+    background-color: var(--sage);
+  }
+  
+  .skyblue {
+    color: var(--skyblue);
+  }
+  
+  .bg-skyblue {
+    background-color: var(--skyblue);
+  }
+  
+  .peach {
+    color: var(--peach);
+  }
+  
+  .bg-peach {
+    background-color: var(--peach);
+  }
+  
+  .cream {
+    color: var(--cream);
+  }
+  
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  
+  .charcoal {
+    color: var(--charcoal);
+  }
+  
+  .bg-charcoal {
+    background-color: var(--charcoal);
+  }
+  
+  .soft-red {
+    color: var(--soft-red);
+  }
+  
+  .bg-soft-red {
+    background-color: var(--soft-red);
+  }
+
+  .animate-gentle-pulse {
+    animation: gentle-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(120, 181, 141, 0.3);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--sage), var(--skyblue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { 
+    opacity: 0.8; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+}
+
+@keyframes fade-in {
+  0% { 
+    opacity: 0; 
+  }
+  100% { 
+    opacity: 1; 
+  }
+}
+
+@keyframes slide-up {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
