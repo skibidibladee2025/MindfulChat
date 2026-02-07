@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>trackify - Track links with precision</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/public/assets/logo.svg" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="/public/index.css?v=6" />
+  </head>
+  <body>
+    <nav>
+      <a href="/legal">Legal</a>
+      <a
+        href="https://github.com/tiagorangel1/linklog"
+        target="_blank"
+        style="padding-left: 0px"
+      >
+        GitHub
+      </a>
+      <a href="/links" class="primary">Dashboard</a>
+    </nav>
+
+    <section class="hero">
+      <img src="/public/assets/logo.svg" alt="trackify Logo" class="logo" />
+
+      <h1>Track links with precision</h1>
+      <p>
+        Get detailed analytics from any link you share using powerful, advanced
+        fingerprinting.
+      </p>
+
+      <div class="link-input">
+        <div class="input-container">
+          <input type="url" placeholder="https://example.com" />
+          <button disabled onclick="createLink()">Track</button>
+        </div>
+      </div>
+
+      <p class="terms">
+        By continuing, you agree to our
+        <a href="/legal">terms and ethics</a>
+      </p>
+    </section>
+
+    <section class="features">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Browser & device info</h3>
+          <!-- prettier-ignore -->
+          <p>
+            Smart
+            <span class="highlight">browser detection</span>,
+            operating system details, language preferences, device
+            specifications &amp; more.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Device analytics</h3>
+          <!-- prettier-ignore -->
+          <p>
+            Screen resolution, pixel density, orientation,
+            <span class="highlight">connection speed</span>, performance metrics and much more.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔌</div>
+          <h3>Extension detection</h3>
+          <p>
+            Identify installed browser extensions and plugins across
+            <span class="highlight">thousands of extensions</span>
+            in Chrome, Edge, and other browsers.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🙍</div>
+          <h3>Advanced fingerprinting</h3>
+          <!-- prettier-ignore -->
+          <p>
+            List fonts, WebGL capabilities, canvas
+            fingerprinting, and more to create a
+            <span class="highlight">unique profile</span>
+            for each user.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Location data</h3>
+          <p>
+            <span class="highlight">IP geolocation</span>
+            with city-level accuracy, ISP information, timezone, and network
+            details.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Clean UI &amp; open-source</h3>
+          <p>
+            Easy-to-use global link dashboard with
+            <span class="highlight">simple design</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>What is trackify?</h2>
+      <p>
+        trackify is a powerful URL shortener and tracker and Grabify alternative
+        that provides detailed insights about link interactions. Track
+        <b>hundreds</b>
+        of data points per visitor with our advanced fingerprinting.
+      </p>
+      <p>
+        Unlike Grabify, trackify isn't sketchy, is significantly more
+        transparent, powerful, and easy to use.
+      </p>
+    </section>
+
+    <section class="faq">
+      <div class="faq-item">
+        <div class="faq-question">Is this legal to use?</div>
+        <div class="faq-answer">
+          Yep! We collect publicly available information that every website you
+          go to can access. However, using this data to harm or doxx others is
+          illegal.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if someone got my IP address?</div>
+        <div class="faq-answer">
+          IP addresses are not private information — every website you visit can
+          see your IP. trackify simply makes this visible to link creators. Your
+          physical address cannot be determined from IP alone.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is trackify free?</div>
+        <div class="faq-answer">
+          Yes, trackify is completely free and ad-free. It's self-hosted with
+          minimal operating costs so I don't really care about monetizing this.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I delete my data?</div>
+        <div class="faq-answer">
+          Learn more about deleting your data in our
+          <a href="/legal">legal page</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://tiagorangel.com/cdn/widget.js"></script>
+    <script>
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+
+      function updateButton() {
+        try {
+          new URL(input.value);
+          button.disabled = false;
+        } catch {
+          button.disabled = true;
+        }
+      }
+
+      function createLink() {
+        if (!button.disabled) {
+          window.location.href =
+            "/links?new=" + encodeURIComponent(input.value);
+        }
+      }
+
+      input.addEventListener("input", updateButton);
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter" && !button.disabled) {
+          createLink();
+        }
+      });
+
+      updateButton();
+    </script>
+
+    <script
+      defer
+      data-domain="linklog.tiagorangel.com"
+      src="https://plsb.tiagorangel.com/js/script.outbound-links.pageview-props.tagged-events.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+  </body>
+</html>
